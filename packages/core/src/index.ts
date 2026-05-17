@@ -419,14 +419,12 @@ export {
   registerChildReaper,
   spawnManagedDaemonChild,
   sweepDaemonChildren,
-  classifyAoOrphanCommand,
-  detectAoOrphansFromPsOutput,
   scanAoOrphans,
   reapAoOrphans,
   type DaemonChildEntry,
   type DaemonChildSweepOptions,
   type DaemonChildSweepResult,
-  type AoOrphanProcess,
+  type DaemonChildOrphan,
 } from "./daemon-children.js";
 
 // Activity event logging — structured diagnostic event trail
