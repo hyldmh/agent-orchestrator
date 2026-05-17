@@ -1,5 +1,36 @@
 # @aoagents/ao-cli
 
+## 0.9.0
+
+### Patch Changes
+
+- d5d0f07: Rebuild missing better-sqlite3 native bindings during ao postinstall and replace noisy activity-events native-binding failures with a one-line diagnostic.
+- Updated dependencies [94981dc]
+- Updated dependencies [d5d0f07]
+  - @aoagents/ao-core@0.9.0
+  - @aoagents/ao-web@0.9.0
+  - @aoagents/ao-plugin-agent-aider@0.9.0
+  - @aoagents/ao-plugin-agent-claude-code@0.9.0
+  - @aoagents/ao-plugin-agent-codex@0.9.0
+  - @aoagents/ao-plugin-agent-cursor@0.9.0
+  - @aoagents/ao-plugin-agent-kimicode@0.9.0
+  - @aoagents/ao-plugin-agent-opencode@0.9.0
+  - @aoagents/ao-plugin-notifier-composio@0.9.0
+  - @aoagents/ao-plugin-notifier-desktop@0.9.0
+  - @aoagents/ao-plugin-notifier-discord@0.9.0
+  - @aoagents/ao-plugin-notifier-openclaw@0.9.0
+  - @aoagents/ao-plugin-notifier-slack@0.9.0
+  - @aoagents/ao-plugin-notifier-webhook@0.9.0
+  - @aoagents/ao-plugin-runtime-process@0.9.0
+  - @aoagents/ao-plugin-runtime-tmux@0.9.0
+  - @aoagents/ao-plugin-scm-github@0.9.0
+  - @aoagents/ao-plugin-terminal-iterm2@0.9.0
+  - @aoagents/ao-plugin-terminal-web@0.9.0
+  - @aoagents/ao-plugin-tracker-github@0.9.0
+  - @aoagents/ao-plugin-tracker-linear@0.9.0
+  - @aoagents/ao-plugin-workspace-clone@0.9.0
+  - @aoagents/ao-plugin-workspace-worktree@0.9.0
+
 ## 0.8.0
 
 ### Patch Changes

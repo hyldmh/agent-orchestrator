@@ -1,5 +1,17 @@
 # @aoagents/ao-core
 
+## 0.9.0
+
+### Minor Changes
+
+- 94981dc: feat: "Launch Orchestrator (clean context)" action on the orchestrator session page
+
+  Adds a `Relaunch (clean)` action on the orchestrator session page that replaces the project's canonical orchestrator with a fresh one — killing the existing orchestrator, deleting its metadata, and spawning a new session with no carryover state. Backed by a new `SessionManager.relaunchOrchestrator(config)` method that ignores `orchestratorSessionStrategy`. Removes the now-redundant Orchestrator Selector page (`/orchestrators?project=X`) — there is only ever one orchestrator per project, so a selector page is no longer meaningful. Closes #1900 and #1080.
+
+### Patch Changes
+
+- d5d0f07: Rebuild missing better-sqlite3 native bindings during ao postinstall and replace noisy activity-events native-binding failures with a one-line diagnostic.
+
 ## 0.8.0
 
 ### Minor Changes
