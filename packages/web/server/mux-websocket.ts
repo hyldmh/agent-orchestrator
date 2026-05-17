@@ -557,10 +557,20 @@ export class TerminalManager {
         terminal.resetTimer = undefined;
       }
       try {
-        // Ask tmux to detach this PTY client (Ctrl-B, d). That lets tmux flush
-        // pending output and normally exits attach-session with code 0. If it
-        // does not exit in time, the kill fallback below still reaps it.
-        terminal.pty?.write("\x02d");
+        // Ask tmux to detach clients attached to this session. That lets tmux
+        // flush pending output and normally exits attach-session with code 0.
+        // If the command fails or the PTY does not exit in time, the fallback
+        // below still reaps it.
+        const detachProc = spawn(this.TMUX, ["detach-client", "-s", `=${terminal.tmuxSessionId}`]);
+        detachProc.on("error", () => {
+          try {
+            // Fallback to the default tmux detach key (Ctrl-B, d) if the
+            // detach-client command cannot be spawned.
+            terminal.pty?.write("\x02d");
+          } catch {
+            // Best-effort; the kill fallback below handles stubborn PTYs.
+          }
+        });
       } catch {
         // Best-effort; the kill fallback below handles stubborn PTYs.
       }

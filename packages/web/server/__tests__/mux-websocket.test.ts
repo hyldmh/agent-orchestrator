@@ -438,7 +438,7 @@ describe("TerminalManager shutdown", () => {
     mgr.subscribe("ao-177", undefined, vi.fn(), exitCb);
 
     const shutdownPromise = mgr.shutdownGracefully(1000);
-    expect(pty.write).toHaveBeenCalledWith("\x02d");
+    expect(mockSpawn).toHaveBeenCalledWith("/usr/bin/tmux", ["detach-client", "-s", "=ao-177"]);
 
     await capturedOnExit!({ exitCode: 0 });
     await vi.advanceTimersByTimeAsync(1000);
@@ -457,7 +457,7 @@ describe("TerminalManager shutdown", () => {
     const shutdownPromise = mgr.shutdownGracefully(1000);
     unsubscribe();
 
-    expect(pty.write).toHaveBeenCalledWith("\x02d");
+    expect(mockSpawn).toHaveBeenCalledWith("/usr/bin/tmux", ["detach-client", "-s", "=ao-177"]);
     expect(pty.kill).not.toHaveBeenCalled();
 
     await capturedOnExit!({ exitCode: 0 });
